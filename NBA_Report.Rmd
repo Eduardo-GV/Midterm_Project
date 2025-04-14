@@ -1,0 +1,37 @@
+---
+title: "NBA Report"
+author: "Joey, Eduardo, Shizu, Megan, and Ella"
+date: "`r format(Sys.Date(), '%b %d, %Y')`"
+output: html_document
+---
+
+```{r setup options, include=FALSE, warning=FALSE}
+
+knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+```
+
+```{r, establishing the relative filepath}
+
+here::i_am("NBA_Report.Rmd")
+```
+
+# Introduction
+
+*Placeholder - fill in with summary of what the report sections will include 
+
+
+
+## Section 1 (Eduardo)
+
+Points, assists, and rebounds are the three major statistical categories in basketball. Only three active NBA players have ever led their team in all three categories over the course of a season - LeBron James, Nikola Jokic, and Jayson Tatum.
+
+We decided to tally a combined score (points + assists + rebounds) to identify the 10 players with the highest combined score for the 2025 season, using per-36 minute statistics. 
+
+```{r, combined score table}
+
+library(gt)
+readRDS(
+  file = here::here("output/Combined_score_table.rds")
+)
+
+```
