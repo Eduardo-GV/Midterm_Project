@@ -8,6 +8,8 @@ output: html_document
 ```{r setup options, include=FALSE, warning=FALSE}
 
 knitr::opts_chunk$set(echo = FALSE, warning=FALSE, message=FALSE)
+library(ggplot2)
+library(gt)
 ```
 
 ```{r, establishing the relative filepath}
@@ -17,7 +19,7 @@ here::i_am("NBA_Report.Rmd")
 
 # Introduction
 
-*Placeholder - fill in with summary of what the report sections will include 
+*Placeholder - fill in with summary of what the report sections will include, potentially introduce how you can customize the reproducible report
 
 
 
@@ -29,7 +31,7 @@ We decided to tally a combined score (points + assists + rebounds) to identify t
 
 ```{r, combined-score-table}
 
-library(gt)
+
 readRDS(
   file = here::here("output/Combined_score_table.rds")
 )
@@ -42,7 +44,7 @@ Our team also decided to create a scatterplot that shows the association between
 
 ```{r, scatter-age-rank-mloutti}
 
-library(ggplot2)
+
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
@@ -53,18 +55,28 @@ knitr::include_graphics(
 
 ## Section 3 (Ella)
 
-Placeholder for the plot on "Yuki Kawamura", "Rui Hachimura", and "James Harden" scores. 
+This is our plot on "Yuki Kawamura", "Rui Hachimura", and "James Harden" scores as compared to the league average. 
 
 ```{r ella-plot}
-
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/fav_player_ptspread_plot.png")
+)
 ```
 
 ## Section 4 (Shizu)
 
-Placeholder for the plot on "Yuki Kawamura", "Rui Hachimura", and "James Harden" combined scores in 36 minute intervals.
+This is our plot on "Yuki Kawamura", "Rui Hachimura", and "James Harden" combined scores in 36 minute intervals.
 
 ```{r shizu-plot}
-
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/player_stats_plot.png")
+)
 ```
 
 ## Conclusion 
+
+PLACEHOLDER for our discussion on the automated report, how the reproducability of our report can help with future analyses for different groups, etc.
