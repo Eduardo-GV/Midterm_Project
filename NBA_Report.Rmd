@@ -73,7 +73,7 @@ This is our plot on "Yuki Kawamura", "Rui Hachimura", and "James Harden" combine
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
-  here::here("output/player_stats_plot.png")
+  here::here("output/player_stats_plot_shisomeya.png")
 )
 ```
 
