@@ -35,3 +35,18 @@ readRDS(
 )
 
 ```
+
+## Section 2 (Megan)
+
+Our team also decided to create a scatterplot that shows the association between players' age and their rank in the NBA. The y-axis for this plot was flipped so that the players who are ranked the highest (1, 2, 3) are at the top of the graph, and those that are ranked the lowest (567, 568, 569) are at the bottom.
+
+```{r, scatter-age-rank-mloutti}
+
+library(ggplot2)
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/scatter_age_rank_mloutti.png")
+)
+
+```
