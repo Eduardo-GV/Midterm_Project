@@ -27,7 +27,7 @@ Points, assists, and rebounds are the three major statistical categories in bask
 
 We decided to tally a combined score (points + assists + rebounds) to identify the 10 players with the highest combined score for the 2025 season, using per-36 minute statistics. 
 
-```{r, combined score table}
+```{r, combined-score-table}
 
 library(gt)
 readRDS(
@@ -50,3 +50,21 @@ knitr::include_graphics(
 )
 
 ```
+
+## Section 3 (Ella)
+
+Placeholder for the plot on "Yuki Kawamura", "Rui Hachimura", and "James Harden" scores. 
+
+```{r ella-plot}
+
+```
+
+## Section 4 (Shizu)
+
+Placeholder for the plot on "Yuki Kawamura", "Rui Hachimura", and "James Harden" combined scores in 36 minute intervals.
+
+```{r shizu-plot}
+
+```
+
+## Conclusion 
