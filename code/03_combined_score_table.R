@@ -1,18 +1,16 @@
 #Creating a table of the top 10 NBA players based on a combined score of (points + assists + rebounds)
 
-here::i_am("code/Combined_score_table.R")
-NBA_stats <- read.csv((here::here("data/nba_2025-03-07")))
+here::i_am("code/03_combined_score_table.R")
+data<- readRDS(file = here::here("output/nba_data_clean.rds"))
 
 #install.packages(c("dplyr", "readr", "gt"))
 
 library(dplyr)
 library(readr)
-
-NBA_stats <- NBA_stats %>%
-  mutate(combined_score = PTS + AST + TRB)
+library(gt)
 
 #Cleaning the data to show only one row for each player
-NBA_clean <- NBA_stats %>%
+NBA_clean <- data %>%
   group_by(Player) %>%
   filter(n() == 1 | Team == "2TM") %>%
   ungroup()
@@ -26,12 +24,9 @@ top_10_players <- NBA_clean %>%
 combined_score_table <- top_10_players %>%
   select(Player, PTS, AST, TRB, combined_score)
 
-
 # Creating the final formatted table
-library(gt)
 
-combined_score_table <- combined_score_table %>%
-  gt() %>%
+final_table <- combined_score_table %>% gt() %>%
   tab_header(
     title = "Top 10 NBA Players based on Per 36-Minute Score"
   ) %>%
@@ -51,7 +46,7 @@ combined_score_table <- combined_score_table %>%
       cell_fill(color = "lightyellow"),
       cell_text(weight = "bold")
     ),
-    locations = cells_body(columns = vars(Player, combined_score))
+    locations = cells_body(columns = c(Player, combined_score))  # fixed this line
   ) %>%
   tab_footnote(
     footnote = "Score is a direct sum of points, assists, and rebounds.",
@@ -61,7 +56,7 @@ combined_score_table <- combined_score_table %>%
 
 #Saving formatted table to output folder
 saveRDS(
-  combined_score_table,
+  final_table,
   file = here::here("output/Combined_score_table.rds")
 )
 

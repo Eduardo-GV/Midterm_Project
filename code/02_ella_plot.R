@@ -1,23 +1,19 @@
-Ella Objectives: Compare the players’ stats to the league average.
-
-nba_data <- read.csv("data/nba_2025-03-07.txt", stringsAsFactors = FALSE)
-nba_path <- file.choose()
-nba_data <- read.csv(nba_path, stringsAsFactors = FALSE)
+#Ella R script
+here::i_am("code/02_ella_plot.R")
+data<- readRDS(file = here::here("output/nba_data_clean.rds"))
 
 library(dplyr)
 library(ggplot2)
 
 
-nba_data <- read.csv("data/nba_2025-03-07.txt", stringsAsFactors = FALSE)
-
 # Define your players
 my_players <- c("Yuki Kawamura", "Rui Hachimura", "James Harden")
 
 # Filter player data
-player_data <- nba_data %>% filter(Player %in% my_players)
+player_data <- data %>% filter(Player %in% my_players)
 
 # Calculate league average points per game
-league_avg_pts <- mean(nba_data$PTS, na.rm = TRUE)
+league_avg_pts <- mean(data$PTS, na.rm = TRUE)
 
 # Add a "Type" column to separate your players and league average
 comparison_df <- player_data %>%
@@ -26,8 +22,14 @@ comparison_df <- player_data %>%
   bind_rows(data.frame(Player = "League Average", PTS = league_avg_pts, Type = "Average"))
 
 # Plot
-ggplot(comparison_df, aes(x = Player, y = PTS, fill = Type)) +
+plot<- ggplot(comparison_df, aes(x = Player, y = PTS, fill = Type)) +
   geom_col() +
   theme_minimal() +
   labs(title = "PTS: My Favorite Players vs League Average", y = "Points", x = "")
 
+#Saving formatted table to output folder
+ggsave(
+  here::here("output/fav_player_ptspread_plot.png"), 
+  plot = plot,
+  device = "png"
+)
