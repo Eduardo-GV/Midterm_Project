@@ -1,14 +1,14 @@
-NBA_Midterm_Project.html: code/06_render_report.R \
-  Midterm_Project_NBA_Report.Rmd table plots
+NBA_Report.html: code/06_render_report.R \
+	NBA_Report.Rmd table plots
 	Rscript code/06_render_report.R
 
-output/nba_data_clean.rds: code/01_cleaning_data.R data/nba_2025-03-07.csv
+output/nba_data_clean.rds: code/01_cleaning_data.R data/nba_2025-03-07
 	Rscript code/01_cleaning_data.R
 
 output/fav_player_ptspread_plot.png: code/02_ella_plot.R output/fav_player_ptspread_plot.png
 	Rscript code/02_ella_plot.R
 	
-output/Combined_score_table.rds: code/03_combined_score_table.R output/Combined_score_table.rds
+output/Combined_score_table.rds: code/03_combined_score_table.R output/nba_data_clean.rds
 	Rscript code/03_combined_score_table.R
 
 output/player_stats_plot_shisomeya.png: code/04_player_stats_shisomeya.R output/covid_boxplot.png
