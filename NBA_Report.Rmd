@@ -1,8 +1,12 @@
 ---
-title: "NBA Report"
+title: "NBA Report - `r params$year` Season"
 author: "Joey, Eduardo, Shizu, Megan, and Ella"
 date: "`r format(Sys.Date(), '%b %d, %Y')`"
 output: html_document
+params:
+  year: 2025
+  version: "2025-03-07"
+  players1: "Yuki Kawamura, Rui Hachimura, and James Harden"
 ---
 
 ```{r setup options, include=FALSE, warning=FALSE}
@@ -20,15 +24,14 @@ here::i_am("NBA_Report.Rmd")
 
 # Introduction
 
-*Placeholder - fill in with summary of what the report sections will include, potentially introduce how you can customize the reproducible report
-
+Our report breaks down some NBA data from the `r params$year` season. Given the variation in the number of minutes a player gets each game, we are looking at statistics per-36 minutes. These numbers are not equivalent to the box score numbers that same player would tally in an actual game. Data from this report are based on numbers through `r format(as.Date(params$version), "%b %d, %Y")`. 
 
 
 ## Section 1 (Eduardo)
 
-Points, assists, and rebounds are the three major statistical categories in basketball. Only three active NBA players have ever led their team in all three categories over the course of a season - LeBron James, Nikola Jokic, and Jayson Tatum.
+Points, assists, and rebounds are the three major statistical categories in basketball. Only three active NBA players have ever won a championship while leading their team in all three categories that same season - LeBron James, Nikola Jokic, and Jayson Tatum.
 
-We decided to tally a combined score (points + assists + rebounds) to identify the 10 players with the highest combined score for the 2025 season, using per-36 minute statistics. 
+We decided to tally a combined score of (points + assists + rebounds) to identify the 10 players with the highest combined score for the `r params$year` season, using per-36 minute statistics. As expected, many of the top players in the NBA appear in this table.
 
 ```{r, combined-score-table}
 
@@ -43,7 +46,9 @@ table
 
 ## Section 2 (Megan)
 
-Our team also decided to create a scatterplot that shows the association between players' age and their rank in the NBA. The y-axis for this plot was flipped so that the players who are ranked the highest (1, 2, 3) are at the top of the graph, and those that are ranked the lowest (567, 568, 569) are at the bottom.
+Our team also created a scatter plot that shows the association between a player's age and rank in the NBA. The y-axis for this plot was flipped so that the players who are ranked the highest are at the top of the graph, and those that are ranked the lowest are at the bottom. 
+
+A line of best fit was applied to display the general trend. On average, a player's rank improves as they get older and gain more experience in the league. 
 
 ```{r, scatter-age-rank-mloutti}
 
@@ -58,7 +63,8 @@ knitr::include_graphics(
 
 ## Section 3 (Ella)
 
-This is our plot on "Yuki Kawamura", "Rui Hachimura", and "James Harden" scores as compared to the league average. 
+We decided to customize the report to look closely at the scoring ability of `r params$players1`, three of our favorite players in the NBA.
+We compare their points per-36 minutes to the league average, which is right under 15 points.  
 
 ```{r ella-plot}
 #| fig.align = "center",
@@ -70,7 +76,7 @@ knitr::include_graphics(
 
 ## Section 4 (Shizu)
 
-This is our plot on "Yuki Kawamura", "Rui Hachimura", and "James Harden" combined scores in 36 minute intervals.
+Below, we look at the same three players seen in section 3: `r params$players1`. We now look at their points per-36 minutes individually, without including the league average as a reference group.
 
 ```{r shizu-plot}
 #| fig.align = "center",
@@ -82,4 +88,5 @@ knitr::include_graphics(
 
 ## Conclusion 
 
-PLACEHOLDER for our discussion on the automated report, how the reproducability of our report can help with future analyses for different groups, etc.
+Our report uses NBA data to assess performance in different ways. We looked at a combined score of (points + assists + rebounds), a plot of age vs. rank, and then a closer look at points for some specific players. 
+One limitation of this report is that per-36 minute stats do not always approximate a player's true box score numbers. The best players often play over closer to 40 minutes per game, so their stats may appear less impressive. On the opposite end, fringe rotation players who get very few minutes will have their stats inflated. Nevertheless, per-36 minute numbers are a good proxy for player performance.  
