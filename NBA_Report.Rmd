@@ -50,13 +50,13 @@ Our team also created a scatter plot that shows the association between a player
 
 A line of best fit was applied to display the general trend. On average, a player's rank improves as they get older and gain more experience in the league. 
 
-```{r, scatter-age-rank-mloutti}
+```{r, scatter-age-rank}
 
 
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
-  here::here("output/scatter_age_rank_mloutti.png")
+  here::here("output/scatter_age_rank.png")
 )
 
 ```
@@ -64,13 +64,13 @@ knitr::include_graphics(
 ## Section 3 (Ella)
 
 We decided to customize the report to look closely at the scoring ability of `r params$players1`, three of our favorite players in the NBA.
-We compare their points per-36 minutes to the league average, which is right under 15 points.  
+We compare their points per-36 minutes to the league average for the `r params$year` season.  
 
-```{r ella-plot}
+```{r comparison-plot}
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
-  here::here("output/fav_player_ptspread_plot.png")
+  here::here("output/selected_player_comparison_plot.png")
 )
 ```
 
@@ -82,7 +82,7 @@ Below, we look at the same three players seen in section 3: `r params$players1`.
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
-  here::here("output/player_stats_plot_shisomeya.png")
+  here::here("output/player_stats_plot.png")
 )
 ```
 
