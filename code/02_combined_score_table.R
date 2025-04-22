@@ -1,6 +1,6 @@
 #Creating a table of the top 10 NBA players based on a combined score of (points + assists + rebounds)
 
-here::i_am("code/03_combined_score_table.R")
+here::i_am("code/02_combined_score_table.R")
 data<- readRDS(file = here::here("output/nba_data_clean.rds"))
 
 #install.packages(c("dplyr", "readr", "gt"))

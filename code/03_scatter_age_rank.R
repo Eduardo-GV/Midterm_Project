@@ -1,6 +1,6 @@
-#Megan's objective: make a table displaying players' age and rank
+#Second objective: make a table displaying players' age and rank
 
-here::i_am("code/05_scatter_age_rank.R")
+here::i_am("code/03_scatter_age_rank.R")
 data<- readRDS(file = here::here("output/nba_data_clean.rds"))
 
 
@@ -13,7 +13,7 @@ scatter_age_rank <- data %>%
 # Creating scatterplot of age by rank
 library(ggplot2)
 
-scatter_age_rank_mloutti <- ggplot(data = scatter_age_rank, aes(x = Age, y = Rk)) +
+scatter_age_rank_plot <- ggplot(data = scatter_age_rank, aes(x = Age, y = Rk)) +
   geom_point() +
   geom_smooth(method = lm) +
   scale_y_reverse() +
@@ -21,10 +21,12 @@ scatter_age_rank_mloutti <- ggplot(data = scatter_age_rank, aes(x = Age, y = Rk)
     title = "Relationship Between Age and Player Rank in the NBA",
     x = "Player Age",
     y = "Player Rank")
-scatter_age_rank_mloutti
+
+scatter_age_rank_plot
+
 #Saving formatted table to output folder
 ggsave(
-  here::here("output/scatter_age_rank_mloutti.png"), 
-  plot = scatter_age_rank_mloutti,
+  here::here("output/scatter_age_rank.png"), 
+  plot = scatter_age_rank_plot,
   device = "png"
 )
