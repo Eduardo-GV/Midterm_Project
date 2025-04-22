@@ -11,7 +11,7 @@ output/fav_player_ptspread_plot.png: code/02_ella_plot.R output/fav_player_ptspr
 output/Combined_score_table.rds: code/03_combined_score_table.R output/nba_data_clean.rds
 	Rscript code/03_combined_score_table.R
 
-output/player_stats_plot_shisomeya.png: code/04_player_stats_shisomeya.R output/covid_boxplot.png
+output/player_stats_plot_shisomeya.png: code/04_player_stats_shisomeya.R 
 	Rscript code/04_player_stats_shisomeya.R
 	
 output/scatter_age_rank_mloutti.png: code/05_scatter_age_rank.R output/scatter_age_rank_mloutti.png
@@ -21,9 +21,9 @@ output/scatter_age_rank_mloutti.png: code/05_scatter_age_rank.R output/scatter_a
 table: output/Combined_score_table.rds
 
 .PHONY: plots
-boxplots_symptom_duration: output/fav_player_ptspread_plot.png output/player_stats_plot_shisomeya.png \
+plots: output/fav_player_ptspread_plot.png output/player_stats_plot_shisomeya.png \
   output/scatter_age_rank_mloutti.png
 
 .PHONY: clean
 clean: 
-	rm -f output/*.rds && rm -f output/*.png
+	rm output/* && rm *.html
