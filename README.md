@@ -84,8 +84,9 @@ the year throughout the report.
   - contains rules for building the report
   - `make .install` restores the renv packages that are used in the project directory.
   - `make .nba_data_clean` will generate the cleaned dataset
-  - `make .fav_player_ptspread_plot` will generate Ella's plot of her favorite players
-  - `make .Combined_score_table` will create Eduardo's table of top scores
-  - `make .player_stats_plot_shisomeya` will create Shizu's plot of her favorite players
-  - `make .scatter_age_rank_mloutti` will create Megan's scatterplot of age and ranking
+  - `make .Combined_score_table` will create the table of top scores
+  - `make .scatter_age_rank` will create the scatterplot of age and ranking
+  - `make .selected_player_comparison_plot` will generate the comparison plot
+  - `make .player_stats_plot` will create the players stats plot
+ 
 
