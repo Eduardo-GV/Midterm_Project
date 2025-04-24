@@ -6,7 +6,7 @@ output: html_document
 params:
   year: 2025
   version: "2025-03-07"
-  players1: "Yuki Kawamura, Rui Hachimura, and James Harden"
+  players1: "Yuki Kawamura, Rui Hachimura, James Harden"
 ---
 
 ```{r setup options, include=FALSE, warning=FALSE}
@@ -20,6 +20,22 @@ library(gt)
 ```{r, establishing the relative filepath}
 
 here::i_am("NBA_Report.Rmd")
+```
+
+```{r, coding for the individual Rscripts to access the parameters listed above}
+
+scripts <- c("code/04_comparison_league_plot.R", "code/05_player_stats.R")
+
+players_arg <- params$players
+year_arg <- params$year
+version_arg <- params$version
+
+for (script in scripts) {
+  cmd <- paste("Rscript", shQuote(script), shQuote(players_arg), shQuote(year_arg), shQuote(version_arg))
+  message("Running: ", cmd)
+  system(cmd)
+}
+
 ```
 
 # Introduction
