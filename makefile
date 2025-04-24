@@ -27,3 +27,7 @@ plots: output/scatter_age_rank.png output/selected_player_comparison_plot.png \
 .PHONY: clean
 clean: 
 	rm output/* && rm *.html
+	
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt = FALSE)"
